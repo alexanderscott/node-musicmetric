@@ -11,11 +11,18 @@ Get charting music information from Musicmetric API services.
   
     var Musicmetric = require('musicmetric');
     var musicmetric = new Musicmetric({
-        api_key: 'apikey'       
+        apiKey: 'apikey'       
     });
 
 ## Methods
 
+getTotalPlays
+getTotalFans
+getTotalDownloads
+getAgeDemographic
+getGenderDemographic
+getArtistTopCities
+getArtistCharts
 
 ## TODO
 - A lot...
