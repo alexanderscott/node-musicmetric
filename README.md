@@ -24,5 +24,15 @@ getGenderDemographic
 getArtistTopCities
 getArtistCharts
 
+## Test
+Tests are written in mocha.
+    
+    npm install -g mocha
+    make test
+
+
 ## TODO
 - A lot...
+
+## Copyright
+Copyright (c) 2013 Alex Ehrnschwender. See [LICENSE](https://github.com/alexanderscott/node-musicmetric/raw/master/LICENSE) for details.
