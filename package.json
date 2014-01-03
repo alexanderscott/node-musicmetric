@@ -9,7 +9,7 @@
     "music",
     "api"
   ],
-  "version": "0.1.1",
+  "version": "0.2.0",
   "homepage": "http://alexanderscott.info",
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
   },
   "author": "Alex Ehrnschwender <alex@crunchdevelopment.com> (http://alexehrnschwender.com)",
   "dependencies": {
-    "request": "~2.27.0"
+    "request": "~2.27.0",
+    "underscore": "~1.5.2"
   },
   "devDependencies": {
     "mocha": "~1.14.0"

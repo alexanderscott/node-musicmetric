@@ -9,10 +9,7 @@ Get charting music information from Musicmetric API services.
 
 ## Usage
   
-    var Musicmetric = require('musicmetric');
-    var musicmetric = new Musicmetric({
-        apiKey: 'apikey'       
-    });
+    var musicmetric = require('musicmetric')('apiKey');
 
 ## Methods
 
