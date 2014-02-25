@@ -282,4 +282,19 @@ describe('Musicmetric', function(){
         });
 
     });
+
+    describe('#getArtistEvents()', function(){
+        it('can get artist charts given a correct artist UUID', function(cb){
+            this.timeout(timeout);
+            musicMetric.getArtistEvents({ artistId: testArtistId }, function(err, res){
+                if(err){
+                    console.log(err);
+                    assert.ifError(err);
+                    return cb(err);
+                }
+                _checkValidResponse(res);
+                cb();
+            });
+        });
+    });
 });
