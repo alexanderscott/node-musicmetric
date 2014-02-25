@@ -7,30 +7,36 @@ var assert = require('assert'),
     http = require('http');
 
 var testApiKey = '49d037b9054445238a56c15d6b95ad68';
-var testArtistKey = '';
 var musicMetric = require('../lib/musicmetric')(testApiKey);
 var testArtistId = 'e5f7be85c9b94d70b5d3dc13ee997c56';
-var testArtistName = 'The White Stripes';
+var testArtistName = 'lady gaga';
 var rl;
 var timeout = 30000;
 
 describe('Musicmetric', function(){
 
-    function promptForKey(cb){
+    function _promptForKey(cb){
         rl = rl || readline.createInterface({ input: process.stdin, output: process.stdout });
         rl.question("Please enter a valid MusicMetric API key to test with: ", function(inputKey){
-            if(!_und.isString(inputKey)) promptForKey(cb);
+            if(!_und.isString(inputKey)) _promptForKey(cb);
             else {
                 cb(null, inputKey);
             }
         });
     }
 
+    function _checkValidResponse(res){
+        assert.ok( _und.isObject(res), 'result is an object');
+        assert.ok( _und.isObject(res.response), 'result contains a response object');
+        assert.ok( res.success, 'result is successful');
+        return;
+    }
+
     before(function(cb){
         this.timeout(timeout);
         if( _und.isString(testApiKey) ) cb(null);
         else {
-            promptForKey(function(err, inputKey){
+            _promptForKey(function(err, inputKey){
                 testApiKey = inputKey;
                 cb(null);
             });
@@ -83,7 +89,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
         });
@@ -95,7 +101,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -111,7 +117,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -124,7 +130,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -140,7 +146,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -153,7 +159,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -169,7 +175,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -182,7 +188,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -198,7 +204,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -211,7 +217,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -227,7 +233,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -240,7 +246,7 @@ describe('Musicmetric', function(){
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
 
@@ -250,13 +256,13 @@ describe('Musicmetric', function(){
     describe('#getArtistCharts()', function(){
         it('can get artist charts given a correct artist UUID', function(cb){
             this.timeout(timeout);
-            musicMetric.getArtistCharts({ artistId: testArtistId }, function(err, res){
+            musicMetric.getArtistCharts({ artistId: testArtistId, chartId: '6aacf495049d4de99c809b0ad8120c39' }, function(err, res){
                 if(err){
                     console.log(err);
                     assert.ifError(err);
                     return cb(err);
                 }
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
             
@@ -264,14 +270,13 @@ describe('Musicmetric', function(){
         });
         it('can get artist charts given an artist name', function(cb){
             this.timeout(timeout);
-            musicMetric.getArtistCharts({ artistName: testArtistName }, function(err, res){
+            musicMetric.getArtistCharts({ artistName: testArtistName, chartName: 'fans_total' }, function(err, res){
                 if(err){
                     console.log(err);
                     assert.ifError(err);
                     return cb(err);
                 }
-                console.log("musicMetric.getArtistCharts returned: ", res);
-                assert.ok( _und.isObject(res), 'response is an object');
+                _checkValidResponse(res);
                 cb();
             });
         });
