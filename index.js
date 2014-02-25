@@ -1,1 +1,1 @@
-exports = require('./lib/iconerator');
+exports = require('./lib/musicmetric');
