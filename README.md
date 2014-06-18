@@ -12,6 +12,10 @@ Get charting music information from Musicmetric API services.
     var musicmetric = require('musicmetric')('apiKey');
 
 ## Methods
+Each method implemented by a MusicMetric prototype takes two parameters: an options hash + a callback.
+Call-specific identifiers are picked from the options hash and are used to form the request URI.
+The callback is always `function(error, parsedResponse)`.
+
 
 ####getTotalPlays
 ####getTotalFans
@@ -21,6 +25,9 @@ Get charting music information from Musicmetric API services.
 ####getArtistTopCities
 ####getArtistCharts
 ####getArtistEvents
+####getSentiment
+####getTimeSeries
+
 
 ## Test
 Tests are written in mocha, included in devDependencies:
@@ -29,8 +36,6 @@ Tests are written in mocha, included in devDependencies:
     npm test
 
 
-## TODO
-- A lot...
 
 ## Copyright
 Copyright (c) 2013 Alex Ehrnschwender. See [LICENSE](https://github.com/alexanderscott/node-musicmetric/raw/master/LICENSE) for details.
