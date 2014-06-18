@@ -1,7 +1,7 @@
 # node-musicmetric
 Get charting music information from Musicmetric API services.
 
-[![Build Status](https://secure.travis-ci.org/alexanderscott/iconerator.png)](http://travis-ci.org/alexanderscott/iconerator)
+[![Build Status](https://secure.travis-ci.org/alexanderscott/node-musicmetric.png)](http://travis-ci.org/alexanderscott/node-musicmetric)
 
 ## Installation
 
@@ -13,19 +13,20 @@ Get charting music information from Musicmetric API services.
 
 ## Methods
 
-getTotalPlays
-getTotalFans
-getTotalDownloads
-getAgeDemographic
-getGenderDemographic
-getArtistTopCities
-getArtistCharts
+####getTotalPlays
+####getTotalFans
+####getTotalDownloads
+####getAgeDemographic
+####getGenderDemographic
+####getArtistTopCities
+####getArtistCharts
+####getArtistEvents
 
 ## Test
-Tests are written in mocha.
+Tests are written in mocha, included in devDependencies:
     
-    npm install -g mocha
-    make test
+    NODE_ENV=development npm install
+    npm test
 
 
 ## TODO

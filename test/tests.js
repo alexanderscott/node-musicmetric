@@ -297,4 +297,21 @@ describe('Musicmetric', function(){
             });
         });
     });
+
+
+    describe('#getSentiment()', function(){
+        it('can get a sentiment based on provided text', function(cb){
+            this.timeout(timeout);
+            musicMetric.getSentiment({ text: 'This album looks horrible' }, function(err, res){
+                if(err){
+                    console.log(err);
+                    assert.ifError(err);
+                    return cb(err);
+                }
+                _checkValidResponse(res);
+                cb();
+
+            });
+        });
+    });
 });
