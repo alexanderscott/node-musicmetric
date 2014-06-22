@@ -9,8 +9,8 @@
     "music",
     "api"
   ],
-  "version": "0.4.1",
-  "homepage": "http://alexehrnschwender.comk",
+  "version": "0.4.2",
+  "homepage": "http://node-musicmetric.cloudjams.com",
   "repository": {
     "type": "git",
     "url": "git://github.com/alexanderscott/node-musicmetric.git"
