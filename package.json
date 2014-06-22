@@ -9,7 +9,7 @@
     "music",
     "api"
   ],
-  "version": "0.4.0",
+  "version": "0.4.1",
   "homepage": "http://alexehrnschwender.comk",
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
   ],
   "main": "index",
   "scripts": {
-    "test": "grunt"
+    "test": "grunt test"
   },
   "licenses": [
     {

@@ -50,5 +50,8 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-mocha-test');
  
     grunt.registerTask('default', ['jsdoc', 'jshint:all', 'mochaTest']);
+    grunt.registerTask('test', ['mochaTest']);
+    grunt.registerTask('doc', ['jsdoc']);
+    grunt.registerTask('hint', ['jshint']);
  
 };
