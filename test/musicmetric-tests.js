@@ -2,9 +2,9 @@
 
 var assert = require('assert'),
     _und = require('underscore'),
-    util = require('util'),
-    readline = require('readline'),
-    http = require('http');
+    //util = require('util'),
+    readline = require('readline');
+    //http = require('http');
 
 var testApiKey = '49d037b9054445238a56c15d6b95ad68';
 var musicMetric = require('../lib/musicmetric')(testApiKey);
